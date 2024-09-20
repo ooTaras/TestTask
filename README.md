@@ -2,7 +2,9 @@
 ```apacheconf
 docker compose up -d 
 
-docker exec -it laravel_app php artisan migrate
+docker-compose exec app bash
+
+php artisan migrate
 ```
 
 ## If you have some trouble with permission
