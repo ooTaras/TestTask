@@ -31,4 +31,4 @@ COPY . .
 RUN chown -R www-data:www-data /var/www /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-CMD ["sh", "-c", "cp .env.example .env & composer install & php artisan queue:work --daemon & php-fpm"]
+CMD ["sh", "-c", "cp .env.example .env & composer install && php artisan queue:work --daemon & php-fpm"]

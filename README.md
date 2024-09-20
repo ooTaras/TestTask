@@ -1,7 +1,9 @@
 ## Run project 
 ```apacheconf
 docker compose up -d 
-
+```
+## Wait for composer install and run migration
+```apacheconf
 docker-compose exec app bash
 
 php artisan migrate
