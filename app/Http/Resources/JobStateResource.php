@@ -14,7 +14,7 @@ class JobStateResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'createTs' => $this->resource->created_at->timestamp,
+            'createdTs' => $this->resource->created_at->timestamp,
             'sheduledForTs' => $this->resource->schedule_at->timestamp,
             'state' => $this->resource->state
         ];

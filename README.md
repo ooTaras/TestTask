@@ -9,7 +9,7 @@ docker-compose exec app bash
 php artisan migrate
 ```
 
-## Test App
+## Testing App
 ```apacheconf
 curl -s -X PUT 'http://127.0.0.1:8081/data?action=refresh&delaySeconds=123'
 
