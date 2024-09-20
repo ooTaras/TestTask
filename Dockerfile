@@ -20,15 +20,15 @@ RUN apt-get update && apt-get install -y \
 RUN pecl install memcached redis \
     && docker-php-ext-enable memcached redis
 
+#RUN useradd -m -s /bin/bash www-data
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
 COPY . .
 
-RUN composer install
-
 RUN chown -R www-data:www-data /var/www /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-CMD ["sh", "-c", "php artisan queue:work --daemon  & php-fpm"]
+CMD ["sh", "-c", "cp .env.example .env & composer install & php artisan queue:work --daemon & php-fpm"]
